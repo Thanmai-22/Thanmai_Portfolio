@@ -280,7 +280,7 @@ footer p{font-family:var(--mono);font-size:.65rem;color:var(--txt3);letter-spaci
   </div>
 
   <div class="stats-row reveal reveal-d4">
-    <div class="stat"><div class="num">9</div><div class="lbl">Projects Built</div></div>
+    <div class="stat"><div class="num">10</div><div class="lbl">Projects Built</div></div>
     <div class="stat"><div class="num">22M+</div><div class="lbl">Records Processed</div></div>
     <div class="stat"><div class="num">$10M+</div><div class="lbl">Revenue Impact</div></div>
     <div class="stat"><div class="num">15+</div><div class="lbl">Technologies</div></div>
@@ -537,6 +537,103 @@ footer p{font-family:var(--mono);font-size:.65rem;color:var(--txt3);letter-spaci
     </a>
   </div>
 
+
+  <!-- PROJECT 3 -->
+  <div class="project-card reveal">
+    <div class="glow" style="background:var(--amber)"></div>
+    <div class="proj-header">
+      <div>
+        <div class="proj-num">Project 03</div>
+        <h3 class="proj-name">Hospital Asset<br>AI Email Agent</h3>
+      </div>
+      <span class="proj-status live"><span class="sdot"></span> Live</span>
+    </div>
+
+    <p class="proj-desc">An intelligent agentic system that reads hospital staff emails, queries asset databases via MCP servers, searches SOPs and user manuals through a RAG pipeline, and replies with accurate, human-like answers — fully automated, end-to-end.</p>
+
+    <ul class="proj-features">
+      <li>LangGraph stateful async workflow with conditional branching and parallel tool execution</li>
+      <li>3 dedicated MCP servers: MySQL (natural language to SQL), ChromaDB (semantic search), Outlook (Graph API)</li>
+      <li>RAG pipeline: pdfplumber + GPT-4o Vision OCR for scanned manuals, chunked into ChromaDB</li>
+      <li>AI-generated SOPs — Claude writes 9-section device SOPs from DB inventory, auto-indexed into vector store</li>
+      <li>Validation gate before every reply: quality check, no raw SQL/JSON leakage, human fallback on failure</li>
+    </ul>
+
+    <div class="proj-arch-label">System Flow</div>
+    <div class="arch-diagram">
+      <svg viewBox="0 0 900 180" xmlns="http://www.w3.org/2000/svg" font-family="'JetBrains Mono','Courier New',monospace">
+        <line x1="155" y1="90" x2="195" y2="90" stroke="#252a42" stroke-width="2" stroke-dasharray="6,4"/>
+        <line x1="340" y1="90" x2="380" y2="90" stroke="#252a42" stroke-width="2" stroke-dasharray="6,4"/>
+        <line x1="530" y1="90" x2="570" y2="90" stroke="#252a42" stroke-width="2" stroke-dasharray="6,4"/>
+        <line x1="720" y1="90" x2="760" y2="90" stroke="#252a42" stroke-width="2" stroke-dasharray="6,4"/>
+        <polygon points="193,85 203,90 193,95" fill="#3cffa8" opacity=".6"/>
+        <polygon points="378,85 388,90 378,95" fill="#ffbe42" opacity=".6"/>
+        <polygon points="568,85 578,90 568,95" fill="#47d4ff" opacity=".6"/>
+        <polygon points="758,85 768,90 758,95" fill="#a78bfa" opacity=".6"/>
+
+        <rect x="10" y="30" width="145" height="120" rx="12" fill="#0d1019" stroke="#3cffa8" stroke-width="1.5" opacity=".9"/>
+        <text x="82" y="62" text-anchor="middle" fill="#3cffa8" font-size="10" font-weight="600" letter-spacing="1.5">INBOX</text>
+        <text x="82" y="80" text-anchor="middle" fill="#9499b3" font-size="9">Outlook poll</text>
+        <text x="82" y="95" text-anchor="middle" fill="#9499b3" font-size="9">60s interval</text>
+        <text x="82" y="113" text-anchor="middle" fill="#5c6180" font-size="8">Whitelist filter</text>
+        <text x="82" y="128" text-anchor="middle" fill="#5c6180" font-size="8">Graph API</text>
+
+        <rect x="205" y="30" width="135" height="120" rx="12" fill="#0d1019" stroke="#ffbe42" stroke-width="1.5" opacity=".9"/>
+        <text x="272" y="62" text-anchor="middle" fill="#ffbe42" font-size="10" font-weight="600" letter-spacing="1.5">LANGGRAPH</text>
+        <text x="272" y="80" text-anchor="middle" fill="#9499b3" font-size="9">Intent classify</text>
+        <text x="272" y="95" text-anchor="middle" fill="#9499b3" font-size="9">Route + branch</text>
+        <text x="272" y="113" text-anchor="middle" fill="#5c6180" font-size="8">Claude Haiku</text>
+        <text x="272" y="128" text-anchor="middle" fill="#5c6180" font-size="8">Parallel fetch</text>
+
+        <rect x="390" y="30" width="140" height="120" rx="12" fill="#0d1019" stroke="#47d4ff" stroke-width="1.5" opacity=".9"/>
+        <text x="460" y="62" text-anchor="middle" fill="#47d4ff" font-size="10" font-weight="600" letter-spacing="1.5">MCP SERVERS</text>
+        <text x="460" y="80" text-anchor="middle" fill="#9499b3" font-size="9">MySQL (AWS RDS)</text>
+        <text x="460" y="95" text-anchor="middle" fill="#9499b3" font-size="9">ChromaDB RAG</text>
+        <text x="460" y="113" text-anchor="middle" fill="#5c6180" font-size="8">NL to SQL</text>
+        <text x="460" y="128" text-anchor="middle" fill="#5c6180" font-size="8">Vector search</text>
+
+        <rect x="580" y="30" width="140" height="120" rx="12" fill="#0d1019" stroke="#a78bfa" stroke-width="1.5" opacity=".9"/>
+        <text x="650" y="62" text-anchor="middle" fill="#a78bfa" font-size="10" font-weight="600" letter-spacing="1.5">VALIDATE</text>
+        <text x="650" y="80" text-anchor="middle" fill="#9499b3" font-size="9">Quality gate</text>
+        <text x="650" y="95" text-anchor="middle" fill="#9499b3" font-size="9">Merge sources</text>
+        <text x="650" y="113" text-anchor="middle" fill="#5c6180" font-size="8">Safety check</text>
+        <text x="650" y="128" text-anchor="middle" fill="#5c6180" font-size="8">Human fallback</text>
+
+        <rect x="770" y="38" width="120" height="104" rx="10" fill="#0d1019" stroke="#3cffa8" stroke-width="1.5" opacity=".9"/>
+        <text x="830" y="68" text-anchor="middle" fill="#3cffa8" font-size="8" font-weight="600" letter-spacing="1">REPLY</text>
+        <text x="830" y="82" text-anchor="middle" fill="#9499b3" font-size="8">HTML email</text>
+        <text x="830" y="96" text-anchor="middle" fill="#5c6180" font-size="7">CSV attach</text>
+        <text x="830" y="110" text-anchor="middle" fill="#5c6180" font-size="7">Word report</text>
+        <text x="830" y="124" text-anchor="middle" fill="#5c6180" font-size="7">Outlook MCP</text>
+      </svg>
+    </div>
+
+    <div class="proj-arch-label">Architecture</div>
+    <div class="arch-row">
+      <div class="arch-item"><h4><span class="adot" style="background:var(--accent)"></span>LangGraph Workflow</h4><p>Stateful async graph with conditional routing, parallel MCP tool calls, and a validation gate before every reply.</p></div>
+      <div class="arch-item"><h4><span class="adot" style="background:var(--cyan)"></span>MCP Servers</h4><p>3 independent servers (MySQL, ChromaDB, Outlook) — agent declares what it needs, never touches infra directly.</p></div>
+      <div class="arch-item"><h4><span class="adot" style="background:var(--amber)"></span>RAG Pipeline</h4><p>PDFs ingested via pdfplumber + GPT-4o OCR, chunked and stored in ChromaDB. AI-generated SOPs auto-indexed per device type.</p></div>
+      <div class="arch-item"><h4><span class="adot" style="background:var(--violet)"></span>Safety Layer</h4><p>SQL read-only enforcement, whitelist-only email processing, quality validation, and human-safe fallback on every failure path.</p></div>
+    </div>
+
+    <div class="proj-arch-label">Tech Stack</div>
+    <div class="tech-pills">
+      <span class="pill" data-c="lang">Python</span>
+      <span class="pill" data-c="ml">LangGraph</span>
+      <span class="pill" data-c="ml">Claude (Haiku)</span>
+      <span class="pill" data-c="ml">MCP</span>
+      <span class="pill" data-c="ml">ChromaDB</span>
+      <span class="pill" data-c="stream">MySQL / AWS RDS</span>
+      <span class="pill" data-c="infra">Microsoft Graph API</span>
+      <span class="pill" data-c="ml">OpenAI Embeddings</span>
+      <span class="pill" data-c="ui">Flask</span>
+    </div>
+
+    <a class="proj-link" href="https://github.com/Thanmai-22/MCP-email-agent" target="_blank">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+      View on GitHub
+    </a>
+  </div>
   <!-- MORE PROJECTS (only ones with real repos) -->
   <div class="sec-label" style="margin-top:2rem">More Projects</div>
   <div class="mini-grid reveal">
